@@ -25,8 +25,10 @@ class Window(Gtk.Window):
     def __init__(self, title, width, height):
         Gtk.Window.__init__(self, title=title)
         self.set_default_size(width, height)
-        icon_path = os.path.join(Path(__file__).parent, "tabs.png")
-        self.set_icon_from_file(icon_path)
+        # icon_path = os.path.join(Path(__file__).parent, "tabs.png")
+        # self.set_icon_from_file(icon_path)
+        window_icon = self.render_icon("tabs.png", Gtk.IconSize.MENU)
+        self.set_icon(window_icon)
         self.connect("key-press-event", self.key_press_event)
 
         self.set_up_header_bar()
